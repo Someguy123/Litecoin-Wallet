@@ -31,7 +31,7 @@
                     if($_POST['user'] && $_POST['password'] && $_POST['email']) {
                         $str = strlen($_POST['user']);
                        if($str >= 3 && $str <= 35) {
-                            if(filter_var($email, FILTER_VALIDATE_EMAIL)) {
+                            if(filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
                                 echo "<h3>EVERYTHING IS RIGHT O_O</h3>";
                             } else {
                                 echo srserr("Please enter a real email address.");

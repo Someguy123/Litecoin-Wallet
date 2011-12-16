@@ -19,11 +19,12 @@
                     setcookie("debug", 0, time()-3600);
                     echo '<div class="alert-message error" data-alert="alert"><a class="close" onclick="\$().alert()" href="#">&times</a><p>Debugging disabled</p></div>';
             }
+            $derp = $btclient->getinfo();
             echo '<h3>Litecoind statistics</h3>
             <table class=\'zebra-striped\'>
-            <tr><td>Server balance total: </td><td>' . $btclient->getbalance() . '</td></tr>
-            <tr><td>Server block count: </td><td>' . $btclient->getblockcount() . '</td></tr>
-            <tr><td>Server connection count: </td><td>' . $btclient->getconnectioncount() . '</td></tr>
+            <tr><td>Server balance total: </td><td>' . $derp['balance'] . '</td></tr>
+            <tr><td>Server block count: </td><td>' . $derp['blocks'] . '</td></tr>
+            <tr><td>Server connection count: </td><td>' . $derp['connections'] . '</td></tr>
             <tr><td>Server balance recieved: </td><td>' . $btclient->getreceivedbyaccount('server') . '</td></tr>
             <tr><td>Server address: </td><td>' . $btclient->getaccountaddress("server") . '</td></tr></table>';
             echo '<h3>Other information</h3>
